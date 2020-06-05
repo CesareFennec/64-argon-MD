@@ -4,3 +4,7 @@
 files with name "ptr" are testing realm for local functional algorithm
 
 kaboom problem is still under solving
+
+pbc under construction
+
+rdf under construction
