@@ -2,7 +2,7 @@ import numpy as np
 from numpy import linalg as la
 from numpy import random as ra
 np.set_printoptions(threshold=np.inf)
-N=16 #systemic particle number
+N=4 #systemic particle number
 R=np.zeros((N,3))
 
 for a in range(N):
@@ -20,12 +20,15 @@ for a in range(N):
                 R[a][1] = ra.uniform(4)
                 R[a][2] = ra.uniform(4)
                 b = 0
+                continue
         elif la.norm(R[a]-R[b])<1:
             R[a][0] = ra.uniform(4)
             R[a][1] = ra.uniform(4)
             R[a][2] = ra.uniform(4)
             b=0
+            continue
         else:b=b+1
+        print(b)
 print(R)
 
 D=np.zeros((N,N))
