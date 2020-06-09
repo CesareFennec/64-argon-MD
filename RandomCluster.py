@@ -2,37 +2,31 @@ import numpy as np
 from numpy import linalg as la
 from numpy import random as ra
 np.set_printoptions(threshold=np.inf)
-N=4 #systemic particle number
-R=np.zeros((N,3))
-
-for a in range(N):
-    R[a][0] = ra.uniform(4)
-    R[a][1] = ra.uniform(4)
-    R[a][2] = ra.uniform(4)
-    #give a^t{th} particle a set of position
-
-    b=0
-    while b<a:
-        if b==0:
-            b=b+1
-            if la.norm(R[a]-R[b])<1:
-                R[a][0] = ra.uniform(4)
-                R[a][1] = ra.uniform(4)
-                R[a][2] = ra.uniform(4)
-                b = 0
-                continue
-        elif la.norm(R[a]-R[b])<1:
-            R[a][0] = ra.uniform(4)
-            R[a][1] = ra.uniform(4)
-            R[a][2] = ra.uniform(4)
-            b=0
-            continue
-        else:b=b+1
-        print(b)
+r=[]
+L=4
+N=64
+points = set()
+while len(points) < N:
+    p = (ra.randint(0, L), ra.randint(0, L), ra.randint(0, L))
+    if p not in points:
+        points.add(p)
+        r.append(p)
+print(r)
+R=np.array(r,dtype=float)
 print(R)
-
+for val in range(N):
+    for j in range(3):
+        R[val][j]=R[val][j]+np.random.uniform(0,0.1)-0.05
+        while R[val][j]>=4:
+            R[val][j]=R[val][j]-4
+            continue
+        while R[val][j]<0:
+            R[val][j]=R[val][j]+4
+            continue
+print(R)
 D=np.zeros((N,N))
-for c in range(N):
-    for d in range(N):
-        D[c][d]=la.norm(R[c]-R[d])
-print(D)
+for val in range(N):
+    for i in range(N):
+        D[val][i]=la.norm(R[val]-R[i])
+        if D[val][i]<0.81:
+            print(val,i)
