@@ -1,5 +1,4 @@
 import random as ran
-
 import numpy as np
 from numpy import linalg as la
 
