@@ -1,6 +1,3 @@
-# 64-argon-MD
-"64-body LJ potential" runs pretty slow due to the large matrices
-
-a 'hk jounralist' program has been constructed and low dimesional matrices are applied to accelerate the procession
-
-files with name "ptr" are testing realm for local functional algorithm
+I gonna use some more mature dynamic codes. So I deleted some earlies ones.
+HK Journalist program is done. 
+Initial configuration refinement, ON-THE-FLY velocity correlation function analysis and RDF sampling are under construction~
