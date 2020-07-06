@@ -1,0 +1,10 @@
+fig = plt.figure()
+ax1 = fig.add_subplot(111)
+lns1 = ax1.plot(S, ke, 'red', label='kinetic')
+lns2 = ax1.plot(S, p, 'blue', label='potential')
+lns3 = ax1.plot(S, e, 'orange', label='energy')
+lns = lns1 + lns2 + lns3
+ax1.set_xlabel('steps 0.0025 tao per step')
+ax1.set_ylabel("energy emma=118.7K*kb")
+plt.legend()
+plt.show()
